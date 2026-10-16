@@ -23,3 +23,7 @@ Spletni projekt je rekreacija priljubljenega družbenega omrežja **Instagram**,
 * **Noga (Footer)**: Na vseh straneh je dodana noga z uradno strukturo povezav družbe Meta ter padajočim menijem za izbiro jezika.
 
 <img width="1919" height="1065" alt="image" src="https://github.com/user-attachments/assets/e33f8047-f00a-4f97-8a3c-5cebd983357b" />
+<img width="1919" height="1065" alt="image" src="https://github.com/user-attachments/assets/c3adf60e-e390-48dd-86ab-a1adead3939c" />
+<img width="1919" height="1065" alt="image" src="https://github.com/user-attachments/assets/e27532ef-4dd9-4955-82b6-db1683530933" />
+
+
