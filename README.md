@@ -24,7 +24,7 @@ Spletni projekt je rekreacija priljubljenega družbenega omrežja **Instagram**,
 
 ---
 
-## Slike
+## <img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/a423c7c7-39f1-4399-a1b5-97d1cc0bcfb7" /> Slike
 <img width="1919" height="1065" alt="image" src="https://github.com/user-attachments/assets/e33f8047-f00a-4f97-8a3c-5cebd983357b" />
 <img width="1919" height="1065" alt="image" src="https://github.com/user-attachments/assets/c3adf60e-e390-48dd-86ab-a1adead3939c" />
 <img width="1919" height="1065" alt="image" src="https://github.com/user-attachments/assets/e27532ef-4dd9-4955-82b6-db1683530933" />
