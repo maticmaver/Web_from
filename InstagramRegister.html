@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Sign up • Instagram</title>
+	<link rel="stylesheet" href="css/styleRegister.css">
+	<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="glavni-registracija">
+	<div id="desni"> <!-- Uporabljamo podoben osrednji blok kot pri prijavi, centriran -->
+		<div id="divDesni">
+			<img src="https://static.cdninstagram.com/rsrc.php/v3/y2/r/y9XW3zF1X04.png" id="meta-logo-top" alt="Meta" onerror="this.src='https://placehold.co/100x40/ffffff/0095f6?text=Meta';">
+			<h1 id="naslov-registracija">Get started on Instagram</h1>
+			<p id="podnaslov-registracija">Sign up to see photos and videos from your friends.</p>
+			
+			<form>
+				<div class="input-okvir">
+					<input type="text" id="reg-email" placeholder=" " autocomplete="off" required>
+					<label for="reg-email" class="label">Mobile number or email</label>
+				</div>
+				<p class="obvestilo-tekst">You may receive notifications from us. <a href="#" class="modra-povezava">Learn why we ask for your contact information</a></p>
+
+				<div class="input-okvir">
+					<input type="password" id="reg-password" placeholder=" " autocomplete="new-password" required>
+					<label for="reg-password" class="label">Password</label>
+				</div>
+
+				<div class="birthday-section">
+					<div class="birthday-header">
+						<label class="section-label">Birthday</label>
+						<span class="info-ikonica" title="Why do I need to provide my birthday?">?</span>
+					</div>
+					<div class="birthday-dropdowns">
+						<div class="select-wrapper">
+							<select name="month" aria-label="Month">
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
+							</select>
+						</div>
+						<div class="select-wrapper">
+							<select name="day" aria-label="Day">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31" selected>31</option>
+							</select>
+						</div>
+						<div class="select-wrapper">
+							<select name="year" aria-label="Year">
+								<option value="2026">2026</option>
+								<option value="2025">2025</option>
+								<option value="2024">2024</option>
+								<option value="2023">2023</option>
+								<option value="2022">2022</option>
+								<option value="2021">2021</option>
+								<option value="2020">2020</option>
+								<option value="2019">2019</option>
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
+								<option value="2016">2016</option>
+								<option value="2015">2015</option>
+								<option value="2014">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005" selected>2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="input-okvir">
+					<input type="text" id="reg-name" placeholder=" " autocomplete="off" required>
+					<label for="reg-name" class="label">Full name</label>
+				</div>
+
+				<div class="input-okvir">
+					<input type="text" id="reg-username" placeholder=" " autocomplete="off" required>
+					<label for="reg-username" class="label">Username</label>
+				</div>
+
+				<p class="pravni-pogoji">
+					People who use our service may have uploaded your contact information to Instagram. <a href="#" class="modra-povezava">Learn more</a>.
+				</p>
+				<p class="pravni-pogoji">
+					By tapping Submit, you agree to create an account and to Instagram's <a href="#" class="modra-povezava">Terms</a>. Learn how we collect, use and share your data in our <a href="#" class="modra-povezava">Privacy Policy</a> and how we use cookies and similar technology in our <a href="#" class="modra-povezava">Cookies Policy</a>.
+				</p>
+				<p class="pravni-pogoji">
+					The <a href="#" class="modra-povezava">Privacy Policy</a> describes the ways we can use the information we collect when you create an account. For example, we use this information to provide, personalize and improve our products, including ads.
+				</p>
+
+				<button type="submit" id="gumb-prijava">Submit</button>
+				<a href="instagramReset.html" id="gumb-ustvari-racun">I already have an account</a>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+<footer>
+<div id="spodnji">
+	<div id="zgornjiSpodnji">
+		<p class="footer">Meta</p>
+		<p class="footer">About</p>
+		<p class="footer">Blog</p>
+		<p class="footer">Jobs</p>
+		<p class="footer">Help</p>
+		<p class="footer">API</p>
+		<p class="footer">Privacy</p>
+		<p class="footer">Terms</p>
+		<p class="footer">Locations</p>
+		<p class="footer">Instagram Lite</p>
+		<p class="footer">Meta AI</p>
+		<p class="footer">Threads</p>
+		<p class="footer">Contact Uploading & Non Users</p>
+		<p class="footer">Meta Verified</p>
+	</div>
+	<div id="spodnjiSpodnji">
+		<select name="language" id="dropdown-footer">
+			  <option value="af">Afrikaans</option>
+			  <option value="ar">العربية</option>
+			  <option value="cs">Čeština</option>
+			  <option value="da">Dansk</option>
+			  <option value="de">Deutsch</option>
+			  <option value="el">Ελληνικά</option>
+			  <option value="en" selected>English</option>
+			  <option value="en-gb">English (UK)</option>
+			  <option value="es-es">Español (España)</option>
+			  <option value="es">Español</option>
+			  <option value="fa">فارسی</option>
+			  <option value="fi">Suomi</option>
+			  <option value="fr">Français</option>
+			  <option value="he">עברית</option>
+			  <option value="id">Bahasa Indonesia</option>
+			  <option value="it">Italiano</option>
+			  <option value="ja">日本語</option>
+			  <option value="ko">한국어</option>
+			  <option value="ms">Bahasa Melayu</option>
+			  <option value="nb">Norsk</option>
+			  <option value="nl">Nederlands</option>
+			  <option value="pl">Polski</option>
+			  <option value="pt-br">Português (Brasil)</option>
+			  <option value="pt">Português (Portugal)</option>
+			  <option value="ru">Русский</option>
+			  <option value="sv">Svenska</option>
+			  <option value="th">ภาษาไทย</option>
+			  <option value="tl">Filipino</option>
+			  <option value="tr">Türkçe</option>
+			  <option value="zh-cn">中文(简体)</option>
+			  <option value="zh-tw">中文(台灣)</option>
+			  <option value="bn">বাংলা</option>
+			  <option value="gu">ગુજરાતી</option>
+			  <option value="hi">हिन्दी</option>
+			  <option value="hr">Hrvatski</option>
+			  <option value="hu">Magyar</option>
+			  <option value="kn">ಕನ್ನಡ</option>
+			  <option value="ml">മലയാളം</option>
+			  <option value="mr">मराठी</option>
+			  <option value="ne">नेपाली</option>
+			  <option value="pa">ਪੰਜਾਬੀ</option>
+			  <option value="si">සිංහල</option>
+			  <option value="sk">Slovenčina</option>
+			  <option value="ta">தமிழ்</option>
+			  <option value="te">తెలుగు</option>
+			  <option value="ur">اردو</option>
+			  <option value="vi">Tiếng Việt</option>
+			  <option value="zh-hk">中文(香港)</option>
+			  <option value="bg">Български</option>
+			  <option value="fr-ca">Français (Canada)</option>
