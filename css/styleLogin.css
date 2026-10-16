@@ -161,7 +161,7 @@
     border-color: #a8a8a8;
 }
 
-/* Stil za lebdeči label, ki se premakne gor */
+
 .label {
     position: absolute;
     left: 12px;
@@ -174,7 +174,6 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Ko je input fokusiran (kliknjen) ALI vanj nekaj vpišemo (not(:placeholder-shown)), se label premakne navzgor in pomanjša */
 .input-okvir input:focus ~ .label,
 .input-okvir input:not(:placeholder-shown) ~ .label {
     top: 10px;
@@ -184,12 +183,12 @@
 }
 }
 
-/* Stil za začetno besedilo v polju (placeholder) */
+
 .input-okvir input::placeholder {
     color: #8e8e8e;
 }
 #gumb-prijava {
-	background-color: #133b6d; /* Temno modra barva gumba kot na Instagramu, ko podatki še niso izpolnjeni */
+	background-color: #133b6d; 
     width: 100%;
     background-color: #0095f6;
     border: none;
@@ -206,7 +205,7 @@
 }
 
 #gumb-prijava:hover {
-	cursor: not-allowed;
+	cursor: poiter;
 }
 
 #okvir-fb-prijava{
