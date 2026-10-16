@@ -21,3 +21,5 @@ Spletni projekt je rekreacija priljubljenega družbenega omrežja **Instagram**,
   * **Animirani napisi (Floating Labels)**: Dinamično premikanje napisov v vnosnih poljih ob kliku ali vnosu besedila.
   * **Prilagojeni gumbi in prelivi**: Stiliziranje gumbov z zaobljenimi robovi ter barvni prelivi za poudarke.
 * **Noga (Footer)**: Na vseh straneh je dodana noga z uradno strukturo povezav družbe Meta ter padajočim menijem za izbiro jezika.
+
+<img width="1919" height="1065" alt="image" src="https://github.com/user-attachments/assets/e33f8047-f00a-4f97-8a3c-5cebd983357b" />
