@@ -1,0 +1,273 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background-color: #ffffff;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+color: #262626;
+}
+
+#glavni-registracija {
+width: 100%;
+display: flex;
+justify-content: center;
+padding: 40px 20px 60px 20px;
+}
+
+#desni {
+width: 100%;
+max-width: 580px;
+margin: 0 auto;
+padding: 20px 30px;
+display: flex;
+-webkit-text-size-adjust: 100%;
+}
+
+#divDesni {
+font-size: 14px;
+width: 100%;
+}
+
+#meta-logo-top {
+width: 65px;
+margin-bottom: 16px;
+display: block;
+}
+
+#naslov-registracija {
+font-size: 22px;
+font-weight: 600;
+margin-bottom: 8px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+color: #262626;
+}
+
+#podnaslov-registracija {
+font-size: 14px;
+color: #737373;
+margin-bottom: 24px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.input-okvir {
+position: relative;
+margin-bottom: 12px;
+}
+
+.input-okvir input {
+width: 100%;
+height: 55px;
+background: white;
+border: 1px solid #dbdbdb;
+border-radius: 17px;
+padding: 16px 0 0 12px;
+font-size: 14px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+color: #262626;
+outline: none;
+}
+
+.input-okvir input:focus {
+border-color: #a8a8a8;
+}
+
+.label {
+position: absolute;
+left: 12px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 14px;
+color: #8e8e8e;
+pointer-events: none;
+transition: all 0.1s ease-in-out;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.input-okvir input:focus ~ .label,
+.input-okvir input:not(:placeholder-shown) ~ .label {
+top: 10px;
+font-size: 10px;
+color: #8e8e8e;
+transform: translateY(0);
+}
+
+.input-okvir input::placeholder {
+color: #8e8e8e;
+}
+
+.obvestilo-tekst {
+font-size: 12px;
+color: #737373;
+margin-top: -6px;
+margin-bottom: 16px;
+line-height: 16px;
+}
+
+.birthday-section {
+margin-bottom: 16px;
+}
+
+.birthday-header {
+display: flex;
+align-items: center;
+gap: 4px;
+margin-bottom: 6px;
+}
+
+.section-label {
+font-size: 14px;
+font-weight: 600;
+color: #262626;
+}
+
+.info-ikonica {
+width: 14px;
+height: 14px;
+border-radius: 50%;
+border: 1px solid #8e8e8e;
+color: #8e8e8e;
+font-size: 10px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}
+
+.birthday-dropdowns {
+display: flex;
+gap: 10px;
+}
+
+.select-wrapper {
+flex: 1;
+position: relative;
+border: 1px solid #dbdbdb;
+border-radius: 17px;
+background-color: #fff;
+height: 50px;
+display: flex;
+align-items: center;
+padding: 0 12px;
+}
+
+.select-wrapper select {
+width: 100%;
+background: transparent;
+border: none;
+outline: none;
+font-size: 14px;
+color: #262626;
+cursor: pointer;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.pravni-pogoji {
+font-size: 12px;
+color: #737373;
+line-height: 16px;
+margin-bottom: 16px;
+}
+
+.modra-povezava {
+color: #00376b;
+text-decoration: none;
+}
+
+.modra-povezava:hover {
+text-decoration: underline;
+}
+
+#gumb-prijava {
+width: 100%;
+background-color: #0095f6;
+border: none;
+border-radius: 25px;
+color: white;
+font-weight: 600;
+font-size: 15px;
+padding: 7px;
+margin-top: 8px;
+margin-bottom: 12px;
+cursor: pointer;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+height: 50px;
+transition: background-color 0.2s ease;
+}
+
+#gumb-prijava:hover {
+background-color: #1877f2;
+}
+
+#gumb-ustvari-racun {
+display: block;
+width: 100%;
+height: 50px;
+line-height: 50px;
+border: 1px solid #0095f6;
+border-radius: 25px;
+color: #0095f6;
+font-weight: 600;
+font-size: 15px;
+text-decoration: none;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+text-align: center;
+transition: background-color 0.2s ease;
+margin-bottom: 24px;
+}
+
+#gumb-ustvari-racun:hover {
+background-color: rgba(0, 149, 246, 0.05);
+}
+
+#spodnji {
+width: 100%;
+height: auto;
+box-shadow: 0 0 0 0.5px #DBDBDB;
+padding: 0 16px 0 16px;
+background-color: #fafafa;
+margin-top: auto;
+}
+
+#zgornjiSpodnji {
+width: 100%;
+display: flex;
+justify-content: center;
+padding-top: 20px;
+flex-wrap: wrap;
+line-height: 20px;
+}
+
+.footer {
+margin: 0 8px 10px 8px;
+color: #737373;
+font-size: 12px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.footer:hover {
+text-decoration: underline;
+cursor: pointer;
+}
+
+#spodnjiSpodnji {
+width: 100%;
+display: flex;
+justify-content: center;
+padding: 10px 20px 30px 20px;
+flex-wrap: wrap;
+gap: 12px;
+align-items: center;
+}
+
+#dropdown-footer {
+margin: 0 8px 0;
+color: #737373;
+font-size: 12px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+border: none;
+background: transparent;
+cursor: pointer;
+}

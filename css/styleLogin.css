@@ -1,0 +1,337 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#glavni{
+	width: 100%;
+	height: 890px;
+	display: flex;
+}
+@media (max-width: 1200px) {
+	
+}
+@media (max-width: 960px) {
+	
+	#levi {
+        display: none !important; /* Poskrbimo, da levi del popolnoma izgine */
+    }
+
+    #desni {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 !important;
+        margin: 0 auto !important; 
+        border-left: none !important; 
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centriramo vsebino v desnem delu */
+		border-top: 1px solid #DBDBDB;
+	
+    }
+	#spodnji{
+		bottom: 0 !important;
+		
+	}
+	#logoLevi {
+        display: block !important;
+        position: absolute !important;
+        margin: 20px auto 20px auto !important;
+		left: 50%;
+		top: 200px;
+		transform: translate(-50%, -50%);
+		
+	}
+}
+#levi{
+		width: 50vw;
+		flex: 1;
+		height: calc(100vh - 70px);
+		float: left;
+		max-width: 1200px;
+		padding-top: 40px;
+		top: 0;
+		align-items: center;
+}
+#desni #logoLevi {
+    display: none;
+}
+#logoLevi{
+	display: inline-block;
+    height: 72px;
+    width: 72px;
+	top: 40px;
+	background-image: url("https://static.cdninstagram.com/rsrc.php/yO/r/Ny6hrBVLYjl.webp");
+	background-position: 0px 0px;
+	background-size: 60.48px;
+	background-repeat: no-repeat;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	position: absolute;
+	margin-left: 40px;
+	
+}
+
+#divLevi{
+	margin: auto;
+	width: auto;
+	height: auto;
+	text-align: center;
+	
+}
+#besDivLevi{
+	
+	margin-top: 120px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	color: black;
+	max-width: 100%;
+	width: 80%;
+	font-size: 2.8vw;
+    line-height: 60px;
+    font-weight: normal;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	overflow-y: visible;
+	-webkit-text-size-adjust: 100%;
+	--x-lineHeight: 64.8px;
+	display: block;
+	
+}
+@media (max-width: 1800px) {
+    #besDivLevi {
+        width: 80%;
+    }
+}
+#poudarekRoza{
+    background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#slikaDivLevi{
+	width: 720px;
+	margin: auto;
+	height: calc(100vh - 370px);
+	min-width: 500px;
+	object-fit: contain;
+}
+
+
+#desni{
+	width: 50vw;
+	float: right;
+	margin: 0 0 auto auto;
+	height: 890px;
+	border-left: 2px solid #DBDBDB;
+	padding: 0 52px; 
+	display: flex;
+	max-width: 650px;
+	min-width: 550px;
+	min-height: 590px;
+	-webkit-text-size-adjust: 100%;
+}
+#divDesni{
+	font-size: 20px;
+	margin: auto 0;
+	width: 100%;
+}
+#divDesni p{
+	margin-bottom: 20px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.input-okvir {
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.input-okvir input {
+    width: 100%;
+    height: 55px;
+    background: white; 
+    border: 1px solid #dbdbdb; 
+    border-radius: 17px; /* Prilagojeno na Instagramov stil za robove */
+    padding: 16px 0 0 12px; /* Več prostora zgoraj, da je plac za premaknjen label */
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #262626;
+    outline: none;
+}
+
+.input-okvir input:focus {
+    border-color: #a8a8a8;
+}
+
+/* Stil za lebdeči label, ki se premakne gor */
+.label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: #8e8e8e;
+    pointer-events: none; /* Da klik nesmotrno ne ujame labela */
+    transition: all 0.1s ease-in-out;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Ko je input fokusiran (kliknjen) ALI vanj nekaj vpišemo (not(:placeholder-shown)), se label premakne navzgor in pomanjša */
+.input-okvir input:focus ~ .label,
+.input-okvir input:not(:placeholder-shown) ~ .label {
+    top: 10px;
+    font-size: 10px;
+    color: #8e8e8e;
+    transform: translateY(0);
+}
+}
+
+/* Stil za začetno besedilo v polju (placeholder) */
+.input-okvir input::placeholder {
+    color: #8e8e8e;
+}
+#gumb-prijava {
+	background-color: #133b6d; /* Temno modra barva gumba kot na Instagramu, ko podatki še niso izpolnjeni */
+    width: 100%;
+    background-color: #0095f6;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 7px;
+    margin-top: 11px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	height: 50px;
+}
+
+#gumb-prijava:hover {
+	cursor: not-allowed;
+}
+
+#okvir-fb-prijava{
+	margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+#fb-prijava {
+    display: block;
+    text-align: center;
+    color: #385185;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	width: 100%;
+    height: 50px;
+	line-height: 50px; /* Centriranje besedila navpično */
+    border-radius: 25px; /* Oblika kapsule */
+	background-color: #f5f5f5;
+	margin-top: 70px;
+}
+#fb-prijava:hover{
+	background-color: #efefef;
+}
+
+#pozabljeno-geslo {
+    display: block;
+    text-align: center;
+    color: #00376b;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+#okvir-ustvari-racun {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Gumb / povezava "Create new account" v obliki kapsule z modro obrobo */
+#gumb-ustvari-racun {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px; /* Centriranje besedila navpično */
+    border: 1px solid #0095f6; /* Modra obroba */
+    border-radius: 25px; /* Oblika kapsule */
+    color: #0095f6; /* Modra barva besedila */
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+/* Rahla osvetlitev ozadja, ko greš z miško čez gumb */
+#gumb-ustvari-racun:hover {
+    background-color: rgba(0, 149, 246, 0.05);
+}
+#meta-logo{
+	width: 70px;
+	margin: 0 auto;
+	display: block;
+}
+
+
+
+#spodnji{
+	width: 100%;
+	height: auto;
+	box-shadow: 0 0 0 0.5px #DBDBDB;
+	padding: 0 16px 0 16px;
+	align-items: stretch;
+}
+#zgornjiSpodnji{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+	-webkit-text-size-adjust: 100%;
+	flex-wrap: wrap;
+	line-height: 20px;
+}
+.footer{
+	margin: 0 8px 0;
+	color: grey;
+	font-size: 12px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.footer:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+#spodnjiSpodnji{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	flex-wrap: wrap;
+}
+#dropdown-footer {
+	margin: 0 8px 0;
+	color: grey;
+	font-size: 12px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	border: none;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
