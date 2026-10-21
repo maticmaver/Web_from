@@ -1,0 +1,161 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #ffffff;
+}
+
+
+#glavni {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 60px;
+}
+
+#vsebina-okvir {
+	width: 100%;
+	max-width: 700px;
+	padding: 24px;
+	text-align: left;
+}
+
+
+#vsebina-okvir h1 {
+	font-size: 25px;
+	font-weight: 600;
+	color: #262626;
+	margin-bottom: 12px;
+}
+
+.podnaslov {
+	font-size: 14px;
+	color: #737373;
+	margin-bottom: 20px;
+	line-height: 18px;
+}
+
+.modra-povezava {
+	color: #00376b;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.modra-povezava:hover {
+	text-decoration: underline;
+}
+
+.input-okvir {
+	position: relative;
+	margin-bottom: 12px;
+}
+
+.input-okvir input {
+	width: 100%;
+	height: 55px;
+	background: #fafafa;
+	border: 1px solid #dbdbdb;
+	border-radius: 6px;
+	padding: 16px 0 0 12px;
+	font-size: 14px;
+	color: #262626;
+	outline: none;
+}
+
+.input-okvir input:focus {
+	border-color: #a8a8a8;
+}
+
+.label {
+	position: absolute;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 14px;
+	color: #8e8e8e;
+	pointer-events: none;
+	transition: all 0.1s ease-in-out;
+}
+
+.input-okvir input:focus ~ .label,
+.input-okvir input:not(:placeholder-shown) ~ .label {
+	top: 10px;
+	font-size: 10px;
+	color: #8e8e8e;
+	transform: translateY(0);
+}
+
+.input-okvir input::placeholder {
+	color: #8e8e8e;
+}
+
+#gumb-nadaljuj {
+	width: 100%;
+	height: 44px;
+	background-color: #0095f6;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 6px;
+}
+
+#gumb-nadaljuj:hover {
+	background-color: #1877f2;
+}
+
+#spodnji {
+	width: 100%;
+	height: auto;
+	border-top: 1px solid #DBDBDB;
+	padding: 0 16px;
+	background-color: #ffffff;
+}
+
+#zgornjiSpodnji {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+	flex-wrap: wrap;
+	line-height: 20px;
+}
+
+.footer {
+	margin: 0 8px;
+	color: #737373;
+	font-size: 12px;
+}
+
+.footer:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#spodnjiSpodnji {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+#dropdown-footer {
+	margin: 0 8px;
+	color: #737373;
+	font-size: 12px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}

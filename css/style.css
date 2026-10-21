@@ -1,0 +1,15 @@
+*{
+	padding:0;
+	margin:0;
+}
+#glavni{
+	margin: 200px auto;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+#gumb_logo{
+	width: auto;
+	height: auto;
+	color: black;
+}

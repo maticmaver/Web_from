@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Instagram</title>
+	<link rel="stylesheet" href="../css/styleLogin.css">
+	<link rel="icon" type="image/jpeg" href="../images/logo.png">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="glavni">
+	<div id="levi">
+		
+		<div id="divLevi">
+			<p id="besDivLevi"> 
+				See everyday moments from your <span id="poudarekRoza">close friends</span>.
+			</p>
+			<img id="slikaDivLevi" class="x15mokao x1ga7v0g x16uus16 xbiv7yw x3j1f2j x12ayzb7 xqb9ast x1htk8sl x19kjcj4 xh8yej3 x14v7lna xtuz4j8" alt="" aria-hidden="true" referrerpolicy="origin-when-cross-origin" src="https://static.cdninstagram.com/rsrc.php/yJ/r/53X3pk-t2Gn.webp">
+		</div>
+	</div>
+	<div id="desni">
+		<div id="divDesni">
+		<i id="logoLevi"></i>
+			<p>Log into Instagram</p>
+			<form>
+				<div class="vnosni-okvir">
+					<input type="text" id="username" placeholder=" " autocomplete="username" maxlength="254" title="Email: up to 254 characters. Username: up to 30 characters. Phone number: up to 15 digits.">
+					<label for="username" class="oznaka">Mobile number, username or email</label>
+				</div>
+				<div class="vnosni-okvir">
+					<input type="password" id="password" placeholder=" " autocomplete="current-password" maxlength="64">
+					<label for="password" class="oznaka">Password</label>
+				</div>
+				<button type="submit" id="gumb-prijava">Log in</button>
+				
+				<a href="instagramReset.html" id="pozabljeno-geslo">Forgot password?</a>
+				<div id="okvir-fb-prijava">
+					
+					<a href="https://www.facebook.com/" id="fb-prijava">Log in with Facebook</a>
+					
+				</div>
+			</form>
+			<div id="okvir-ustvari-racun">
+				<a href="instagramRegister.html" id="gumb-ustvari-racun">Create new account</a>
+			</div>
+			<img src="https://static.cdninstagram.com/rsrc.php/v3/y2/r/y9XW3zF1X04.png" id="meta-logo" alt="Meta" onerror="this.src='https://placehold.co/100x40/ffffff/0095f6?text=Meta';">
+		</div>
+	</div>
+</div>
+		<div id="obvestilo-modal" class="modal-ozadje" hidden>
+			<div class="modal-okno" role="dialog" aria-modal="true" aria-labelledby="modal-naslov">
+				<div class="modal-ikona" aria-hidden="true">✓</div>
+				<h2 id="modal-naslov"></h2>
+				<p id="modal-sporocilo"></p>
+				<button type="button" id="modal-zapri">Razumem</button>
+			</div>
+		</div>
+<script>
+	const prijavniObrazec = document.querySelector("form");
+	const vnosUporabnika = document.getElementById("username");
+	const vnosGesla = document.getElementById("password");
+			const obvestiloModal = document.getElementById("obvestilo-modal");
+			const gumbZapriModal = document.getElementById("modal-zapri");
+			const naslovModala = document.getElementById("modal-naslov");
+			const sporociloModala = document.getElementById("modal-sporocilo");
+			const ikonaModala = document.querySelector(".modal-ikona");
+			let elementPredModalom;
+
+			function prikaziModal(naslov, sporocilo, uspeh = false) {
+				naslovModala.textContent = naslov;
+				sporociloModala.textContent = sporocilo;
+				ikonaModala.textContent = uspeh ? "✓" : "!";
+				ikonaModala.classList.toggle("modal-uspeh", uspeh);
+				ikonaModala.classList.toggle("modal-napaka", !uspeh);
+				elementPredModalom = document.activeElement;
+				obvestiloModal.hidden = false;
+				gumbZapriModal.focus();
+			}
+
+			function prikaziNapako() {
+				prikaziModal("Napačni podatki", "Preverite vnos.");
+			}
+
+			function zapriModal() {
+				obvestiloModal.hidden = true;
+				elementPredModalom?.focus();
+			}
+
+			gumbZapriModal.addEventListener("click", zapriModal);
+			document.addEventListener("keydown", (dogodek) => {
+				if (dogodek.key === "Escape" && !obvestiloModal.hidden) {
+					zapriModal();
+				}
+			});
+
+	vnosUporabnika.addEventListener("input", () => {
+		const vrednost = vnosUporabnika.value;
+		const jeTelefon = /^[+]?[0-9]*$/.test(vrednost);
+		const jeEposta = vrednost.includes("@");
+
+		if (jeTelefon) {
+			const plus = vrednost.startsWith("+") ? "+" : "";
+			const stevke = vrednost.replace(/[^0-9]/g, "").slice(0, 15);
+			vnosUporabnika.value = plus + stevke;
+			vnosUporabnika.maxLength = 16;
+		} else {
+			if (jeEposta) {
+				vnosUporabnika.maxLength = 254;
+			} else {
+				vnosUporabnika.maxLength = 65;
+				vnosUporabnika.value = vrednost.slice(0, 64);
+			}
+		}
+	});
+
+	vnosUporabnika.addEventListener("blur", () => {
+		const vrednost = vnosUporabnika.value;
+		const jeTelefon = /^[+0-9 ()-]+$/.test(vrednost) && /[0-9]/.test(vrednost);
+		if (!vrednost.includes("@") && !jeTelefon) {
+			vnosUporabnika.value = vrednost.slice(0, 30);
+			vnosUporabnika.maxLength = 30;
+		}
+	});
+
+	prijavniObrazec.addEventListener("submit", (dogodek) => {
+		dogodek.preventDefault();
+		const uporabniskoIme = vnosUporabnika.value.trim();
+		const geslo = vnosGesla.value;
+
+		if (!uporabniskoIme) {
+			prikaziModal("Manjka uporabniško ime", "Vnesite uporabniško ime/e-poštni naslov/telefonsko številko.");
+			return;
+		}
+
+		const jeEposta = uporabniskoIme.includes("@");
+		const jeTelefon = /^[+0-9 ()-]+$/.test(uporabniskoIme) && /[0-9]/.test(uporabniskoIme);
+		const jeVeljavnaEposta = /^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9.-]{1,189}[.][A-Za-z]{2,63}$/.test(uporabniskoIme);
+		const steviloTelefonskihStevk = uporabniskoIme.replace(/[^0-9]/g, "").length;
+		const jeVeljavnaTelefonska = jeTelefon && steviloTelefonskihStevk >= 7 && steviloTelefonskihStevk <= 15;
+		const jeVeljavnoUporabnisko = /^[A-Za-z0-9._]{1,30}$/.test(uporabniskoIme);
+
+		if (jeEposta && !jeVeljavnaEposta) {
+			prikaziNapako();
+			return;
+		}
+		if (jeTelefon && !jeVeljavnaTelefonska) {
+			prikaziNapako();
+			return;
+		}
+		if (!jeEposta && !jeTelefon && !jeVeljavnoUporabnisko) {
+			prikaziNapako();
+			return;
+		}
+		if (!geslo) {
+			prikaziModal("Manjka geslo", "Vnesite geslo.");
+			return;
+		}
+		if (geslo.length < 8) {
+			prikaziModal("Geslo je prekratko", "Geslo mora vsebovati vsaj 8 znakov.");
+			return;
+		}
+		if (geslo.length > 64) {
+			prikaziNapako();
+			return;
+		}
+
+		const dovoljeniUporabniki = ["test", "test@gmail.com", "123456789"];
+		if (dovoljeniUporabniki.includes(uporabniskoIme) && geslo === "test123!") {
+			vnosUporabnika.value = "";
+			vnosUporabnika.maxLength = 254;
+			vnosGesla.value = "";
+			prikaziModal("Pravilno vneseno", "Pozdravljeni!.", true);
+		} else {
+			prikaziNapako();
+		}
+	});
+</script>
+</body>
+<footer>
+<div id="spodnji">
+	<div id="zgornjiSpodnji">
+		<p class="footer">Meta</p>
+		<p class="footer">About</p>
+		<p class="footer">Blog</p>
+		<p class="footer">Jobs</p>
+		<p class="footer">Help</p>
+		<p class="footer">API</p>
+		<p class="footer">Privacy</p>
+		<p class="footer">Cookie Settings</p>
+		<p class="footer">Terms</p>
+		<p class="footer">Locations</p>
+		<p class="footer">Popular</p>
+		<p class="footer">Instagram Lite</p>
+		<p class="footer">Meta AI</p>
+		<p class="footer">Muse</p>
+		<p class="footer">Threads</p>
+		<p class="footer">Contact Uploading & Non Users</p>
+		<p class="footer">Meta Verified</p>
+	</div>
+	<div id="spodnjiSpodnji">
+		<select name="language" id="dropdown-footer">
+			  <option value="af">Afrikaans</option>
+			  <option value="ar">العربية</option>
+			  <option value="cs">Čeština</option>
+			  <option value="da">Dansk</option>
+			  <option value="de">Deutsch</option>
+			  <option value="el">Ελληνικά</option>
+			  <option value="en" selected>English</option>
+			  <option value="en-gb">English (UK)</option>
+			  <option value="es-es">Español (España)</option>
+			  <option value="es">Español</option>
+			  <option value="fa">فارسی</option>
+			  <option value="fi">Suomi</option>
+			  <option value="fr">Français</option>
+			  <option value="he">עברית</option>
+			  <option value="id">Bahasa Indonesia</option>
+			  <option value="it">Italiano</option>
+			  <option value="ja">日本語</option>
+			  <option value="ko">한국어</option>
+			  <option value="ms">Bahasa Melayu</option>
+			  <option value="nb">Norsk</option>
+			  <option value="nl">Nederlands</option>
+			  <option value="pl">Polski</option>
+			  <option value="pt-br">Português (Brasil)</option>
+			  <option value="pt">Português (Portugal)</option>
+			  <option value="ru">Русский</option>
+			  <option value="sv">Svenska</option>
+			  <option value="th">ภาษาไทย</option>
+			  <option value="tl">Filipino</option>
+			  <option value="tr">Türkçe</option>
+			  <option value="zh-cn">中文(简体)</option>
+			  <option value="zh-tw">中文(台灣)</option>
+			  <option value="bn">বাংলা</option>
+			  <option value="gu">ગુજરાતી</option>
+			  <option value="hi">हिन्दी</option>
+			  <option value="hr">Hrvatski</option>
+			  <option value="hu">Magyar</option>
+			  <option value="kn">ಕನ್ನಡ</option>
+			  <option value="ml">മലയാളം</option>
+			  <option value="mr">मराठी</option>
+			  <option value="ne">नेपाली</option>
+			  <option value="pa">ਪੰਜਾਬੀ</option>
+			  <option value="si">සිංහල</option>
+			  <option value="sk">Slovenčina</option>
+			  <option value="ta">தமிழ்</option>
+			  <option value="te">తెలుగు</option>
+			  <option value="ur">اردو</option>
+			  <option value="vi">Tiếng Việt</option>
+			  <option value="zh-hk">中文(香港)</option>
+			  <option value="bg">Български</option>
+			  <option value="fr-ca">Français (Canada)</option>
+			  <option value="ro">Română</option>
+			  <option value="sr">Српски</option>
+			  <option value="uk">Українська</option>
+		</select>
+		<p class="footer">@ 2026 Instagram from Meta</p>
+	</div>
+</div>
+</footer>
+</html>
