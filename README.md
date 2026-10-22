@@ -1,6 +1,6 @@
-# 📸 Instagram UI Clone (Šolski Projekt)
+# 📸 Instagram fake form (Šolski Projekt)
 
-Enostavna spletna aplikacija, ki posnema uporabniški vmesnik (UI) in osnovno funkcionalnost prijave, registracije ter ponastavitve gesla na socialnem omrežju Instagram. Project je nastal v okviru šolske naloge za utrjevanje znanja spletnih tehnologij.
+Enostavna spletna aplikacija, ki posnema uporabniški vmesnik za Instagram (UI) in osnovno funkcionalnost prijave, registracije ter ponastavitve gesla na socialnem omrežju Instagram. Project je nastal v okviru šolske naloge za utrjevanje znanja spletnih tehnologij.
 
 ---
 
@@ -25,26 +25,6 @@ Namen projekta je bil ustvariti odzivno (responsive) spletno stran, ki po videzu
 
 ---
 
-## 📂 Struktura datotek
-
-```text
-.
-├── html/
-│   ├── instagramLogin.html      # Stran za prijavo
-│   ├── InstagramRegister.html   # Stran za registracijo
-│   ├── instagramReset.html      # Stran za pozabljeno geslo
-│   └── instagramConfirm.html    # Stran za potrditveno kodo
-├── css/
-│   ├── styleLogin.css           # Slogi za prijavo
-│   ├── styleRegister.css        # Slogi za registracijo
-│   ├── styleReset.css           # Slogi za ponastavitev
-│   └── styleConfirm.css         # Slogi za potrditev
-└── images/
-    └── logo.png                 # Logotip in slike
-```
-
----
-
 ## 🔑 Demo podatki za preizkus
 
 Za testiranje prijave in obnovitve računa lahko uporabite naslednje prednastavljene podatke:
@@ -58,19 +38,9 @@ Za testiranje prijave in obnovitve računa lahko uporabite naslednje prednastavl
 
 ---
 
-## 💻 Kako pokreneti projekt
-
-1. Klonirajte repozitorij na svoj računalnik:
-   ```bash
-   git clone https://github.com/uporabnisko-ime/ime-repozitorija.git
-   ```
-2. Odprite mapo projekta.
-3. V brskalniku odprite datoteko `html/instagramLogin.html`.
-
----
 
 ## 📝 Avtor
 
-* **Dijak / Avtor:** [Tvoje Ime]
-* **Šola:** [Ime Srednje Šole]
-* **Predmet:** [Ime Predmeta, npr. Spletne tehnologije / Računalništvo]
+* **Dijak / Avtor:** [Matic Maver]
+* **Šola:** [Elektrotehniška in računalniška šola Nova Gorica]
+* **Predmet:** [Upravljanje s spletnimi vsebinami (USV)]
