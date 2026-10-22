@@ -44,3 +44,5 @@ Za testiranje prijave in obnovitve računa lahko uporabite naslednje prednastavl
 * **Dijak / Avtor:** [Matic Maver]
 * **Šola:** [Elektrotehniška in računalniška šola Nova Gorica]
 * **Predmet:** [Upravljanje s spletnimi vsebinami (USV)]
+*  **Datoteka:** [[projektnaNaloga1.zip](https://github.com/user-attachments/files/33844536/projektnaNaloga1.zip)]
+
