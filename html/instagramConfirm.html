@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Instagram</title>
+	<link rel="stylesheet" href="../css/styleConfirm.css">
+</head>
+<body>
+	<main id="glavni-potrditev">
+		<section id="vsebina-potrditev" aria-labelledby="naslov-potrditev">
+			<a id="nazaj-potrditev" href="InstagramRegister.html" aria-label="Back to sign-up">‹</a>
+			<h1 id="naslov-potrditev">Enter the confirmation code</h1>
+			<p id="opis-potrditev">To confirm your account, enter the 6-digit code we sent to <button type="button" id="naslov-prejemnika">your email address</button>.</p>
+
+			<form id="obrazec-potrditev" novalidate>
+				<div class="okvir-vnosa">
+					<input type="text" id="potrditvena-koda" name="koda" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder=" " aria-describedby="opis-kode">
+					<label for="potrditvena-koda">Confirmation code</label>
+				</div>
+				<p id="opis-kode" class="skrito">Enter the 6-digit example code.</p>
+				<button type="submit" id="gumb-nadaljuj">Continue</button>
+				<button type="button" id="gumb-ponovno-poslji">I didn't get the code</button>
+			</form>
+
+			<a id="povezava-prijava" href="instagramLogin.html">I already have an account</a>
+		</section>
+	</main>
+
+	<footer>
+<div id="spodnji">
+	<div id="zgornjiSpodnji">
+		<p class="footer">Meta</p>
+		<p class="footer">About</p>
+		<p class="footer">Blog</p>
+		<p class="footer">Jobs</p>
+		<p class="footer">Help</p>
+		<p class="footer">API</p>
+		<p class="footer">Privacy</p>
+		<p class="footer">Terms</p>
+		<p class="footer">Locations</p>
+		<p class="footer">Instagram Lite</p>
+		<p class="footer">Meta AI</p>
+		<p class="footer">Threads</p>
+		<p class="footer">Contact Uploading & Non Users</p>
+		<p class="footer">Meta Verified</p>
+	</div>
+	<div id="spodnjiSpodnji">
+		<select name="language" id="dropdown-footer">
+			  <option value="af">Afrikaans</option>
+			  <option value="ar">العربية</option>
+			  <option value="cs">Čeština</option>
+			  <option value="da">Dansk</option>
+			  <option value="de">Deutsch</option>
+			  <option value="el">Ελληνικά</option>
+			  <option value="en" selected>English</option>
+			  <option value="en-gb">English (UK)</option>
+			  <option value="es-es">Español (España)</option>
+			  <option value="es">Español</option>
+			  <option value="fa">فارسی</option>
+			  <option value="fi">Suomi</option>
+			  <option value="fr">Français</option>
+			  <option value="he">עברית</option>
+			  <option value="id">Bahasa Indonesia</option>
+			  <option value="it">Italiano</option>
+			  <option value="ja">日本語</option>
+			  <option value="ko">한국어</option>
+			  <option value="ms">Bahasa Melayu</option>
+			  <option value="nb">Norsk</option>
+			  <option value="nl">Nederlands</option>
+			  <option value="pl">Polski</option>
+			  <option value="pt-br">Português (Brasil)</option>
+			  <option value="pt">Português (Portugal)</option>
+			  <option value="ru">Русский</option>
+			  <option value="sv">Svenska</option>
+			  <option value="th">ภาษาไทย</option>
+			  <option value="tl">Filipino</option>
+			  <option value="tr">Türkçe</option>
+			  <option value="zh-cn">中文(简体)</option>
+			  <option value="zh-tw">中文(台灣)</option>
+			  <option value="bn">বাংলা</option>
+			  <option value="gu">ગુજરાતી</option>
+			  <option value="hi">हिन्दी</option>
+			  <option value="hr">Hrvatski</option>
+			  <option value="hu">Magyar</option>
+			  <option value="kn">ಕನ್ನಡ</option>
+			  <option value="ml">മലയാളം</option>
+			  <option value="mr">मराठी</option>
+			  <option value="ne">नेपाली</option>
+			  <option value="pa">ਪੰਜਾਬੀ</option>
+			  <option value="si">සිංහල</option>
+			  <option value="sk">Slovenčina</option>
+			  <option value="ta">தமிழ்</option>
+			  <option value="te">తెలుగు</option>
+			  <option value="ur">اردو</option>
+			  <option value="vi">Tiếng Việt</option>
+			  <option value="zh-hk">中文(香港)</option>
+			  <option value="bg">Български</option>
+			  <option value="fr-ca">Français (Canada)</option>
+</select>
+		<p class="footer">@ 2026 Instagram from Meta</p>
+	</div>
+</div>
+</footer>
+
+	<div id="obvestilo-modal" class="modal-ozadje" hidden>
+		<div class="modal-okno" role="dialog" aria-modal="true" aria-labelledby="modal-naslov">
+			<div class="modal-ikona modal-napaka" aria-hidden="true">!</div>
+			<h2 id="modal-naslov"></h2>
+			<p id="modal-sporocilo"></p>
+			<button type="button" id="modal-zapri">OK</button>
+		</div>
+	</div>
+
+	<script>
+		const obrazecPotrditev = document.getElementById("obrazec-potrditev");
+		const vnosKode = document.getElementById("potrditvena-koda");
+		const modal = document.getElementById("obvestilo-modal");
+		const naslovModala = document.getElementById("modal-naslov");
+		const sporociloModala = document.getElementById("modal-sporocilo");
+		const ikonaModala = document.querySelector(".modal-ikona");
+		const gumbZapriModal = document.getElementById("modal-zapri");
+		const potrditvenaKoda = String(Math.floor(100000 + Math.random() * 900000));
+		let elementPredModalom;
+
+		function prikaziModal(naslov, sporocilo, vrsta = "napaka") {
+			naslovModala.textContent = naslov;
+			sporociloModala.textContent = sporocilo;
+			ikonaModala.textContent = vrsta === "uspeh" ? "✓" : vrsta === "info" ? "i" : "!";
+			ikonaModala.classList.toggle("modal-uspeh", vrsta === "uspeh");
+			ikonaModala.classList.toggle("modal-napaka", vrsta === "napaka");
+			ikonaModala.classList.toggle("modal-info", vrsta === "info");
+			elementPredModalom = document.activeElement;
+			modal.hidden = false;
+			gumbZapriModal.focus();
+		}
+
+		function prikaziKodo() {
+			prikaziModal(
+				"Confirmation code",
+				potrditvenaKoda,
+				"info"
+			);
+		}
+
+		function zapriModal() {
+			modal.hidden = true;
+			elementPredModalom?.focus();
+		}
+
+		gumbZapriModal.addEventListener("click", zapriModal);
+		document.addEventListener("keydown", (dogodek) => {
+			if (dogodek.key === "Escape" && !modal.hidden) {
+				zapriModal();
+			}
+		});
+
+		vnosKode.addEventListener("input", () => {
+			vnosKode.value = vnosKode.value.replace(/\D/g, "").slice(0, 6);
+		});
+
+		document.getElementById("naslov-prejemnika").addEventListener("click", prikaziKodo);
+
+		obrazecPotrditev.addEventListener("submit", (dogodek) => {
+			dogodek.preventDefault();
+			const koda = vnosKode.value.trim();
+
+			if (!koda) {
+				vnosKode.focus();
+				prikaziModal("Code required", "Click on “your email address” above to display the 6-digit example code.");
+				return;
+			}
+			if (!/^\d{6}$/.test(koda)) {
+				vnosKode.focus();
+				prikaziModal("Invalid code", "The confirmation code must contain exactly 6 digits.");
+				return;
+			}
+			if (koda !== potrditvenaKoda) {
+				vnosKode.focus();
+				prikaziModal("Code doesn't match", "Enter the 6-digit information code displayed in the popup.");
+				return;
+			}
+
+			let preusmeriPoPotrditvi = false;
+
+			// V veji za uspešno kodo:
+			preusmeriPoPotrditvi = true;
+			prikaziModal("Code accepted", "Confirmation code is valid.", "uspeh");
+
+			// Namesto trenutnega poslušalca gumba OK:
+			gumbZapriModal.addEventListener("click", () => {
+				if (preusmeriPoPotrditvi) {
+					window.location.href = "instagramLogin.html";
+					return;
+				}
+				zapriModal();
+			});
+		});
+
+		document.getElementById("gumb-ponovno-poslji").addEventListener("click", () => {
+			prikaziModal(
+				"View the information code",
+				"Click on “your email address” above to display the code.",
+				"info"
+			);
+		});
+	</script>
+</body>
+</html>

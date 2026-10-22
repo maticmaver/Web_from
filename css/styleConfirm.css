@@ -1,0 +1,334 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	color: #262626;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#glavni-potrditev {
+	flex: 1 0 auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 34px 20px 0;
+}
+
+#vsebina-potrditev {
+	width: 100%;
+	max-width: 466px;
+}
+
+#nazaj-potrditev {
+	display: inline-flex;
+	width: 24px;
+	height: 24px;
+	align-items: center;
+	color: #8e8e8e;
+	font-size: 30px;
+	line-height: 20px;
+	text-decoration: none;
+}
+
+#oznaka-demonstracija {
+	display: inline-block;
+	margin: 12px 0 10px;
+	padding: 6px 10px;
+	border: 1px solid #dbe7f2;
+	border-radius: 999px;
+	background: #f2f8fc;
+	color: #00376b;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+#naslov-potrditev {
+	margin-top: 5px;
+	margin-bottom: 8px;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+#opis-potrditev {
+	margin-bottom: 24px;
+	color: #737373;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+#naslov-prejemnika {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #00376b;
+	font: inherit;
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	cursor: pointer;
+}
+
+#naslov-prejemnika:hover {
+	color: #0095f6;
+}
+
+#naslov-prejemnika:focus-visible {
+	outline: 2px solid #0095f6;
+	outline-offset: 2px;
+}
+
+.okvir-vnosa {
+	position: relative;
+	margin-bottom: 12px;
+}
+
+.okvir-vnosa input {
+	width: 100%;
+	height: 55px;
+	padding: 16px 0 0 12px;
+	border: 1px solid #dbdbdb;
+	border-radius: 17px;
+	outline: none;
+	background: #fff;
+	color: #262626;
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+.okvir-vnosa input:focus {
+	border-color: #a8a8a8;
+}
+
+.okvir-vnosa label {
+	position: absolute;
+	top: 50%;
+	left: 12px;
+	transform: translateY(-50%);
+	color: #8e8e8e;
+	font-size: 14px;
+	pointer-events: none;
+	transition: all 0.1s ease-in-out;
+}
+
+.okvir-vnosa input:focus + label,
+.okvir-vnosa input:not(:placeholder-shown) + label {
+	top: 10px;
+	font-size: 10px;
+	transform: translateY(0);
+}
+
+.skrito {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+#gumb-nadaljuj,
+#gumb-ponovno-poslji {
+	width: 100%;
+	height: 50px;
+	border: 0;
+	border-radius: 25px;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	transition: background-color 0.2s ease;
+}
+
+#gumb-nadaljuj {
+	margin-top: 8px;
+	margin-bottom: 12px;
+	background: #0095f6;
+	color: #fff;
+}
+
+#gumb-nadaljuj:hover {
+	background: #1877f2;
+}
+
+#gumb-ponovno-poslji {
+	margin-bottom: 12px;
+	border: 1px solid #0095f6;
+	background: #fff;
+	color: #0095f6;
+}
+
+#gumb-ponovno-poslji:hover {
+	background: rgba(0, 149, 246, 0.05);
+}
+
+#povezava-prijava {
+	display: block;
+	margin-top: 38px;
+	color: #0095f6;
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+}
+
+#povezava-prijava:hover {
+	text-decoration: underline;
+}
+
+#spodnji {
+width: 100%;
+height: auto;
+box-shadow: 0 0 0 0.5px #DBDBDB;
+padding: 0 16px 0 16px;
+background-color: #fafafa;
+}
+
+#zgornjiSpodnji {
+width: 100%;
+display: flex;
+justify-content: center;
+padding-top: 20px;
+flex-wrap: wrap;
+line-height: 20px;
+}
+
+.footer {
+margin: 0 8px 10px 8px;
+color: #737373;
+font-size: 12px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.footer:hover {
+text-decoration: underline;
+cursor: pointer;
+}
+
+#spodnjiSpodnji {
+width: 100%;
+display: flex;
+justify-content: center;
+padding: 10px 20px 30px 20px;
+flex-wrap: wrap;
+gap: 12px;
+align-items: center;
+}
+
+#dropdown-footer {
+margin: 0 8px 0;
+color: #737373;
+font-size: 12px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+border: none;
+background: transparent;
+cursor: pointer;
+}
+
+.modal-ozadje[hidden] {
+display: none;
+}
+
+.modal-ozadje {
+position: fixed;
+inset: 0;
+z-index: 1000;
+display: grid;
+place-items: center;
+padding: 24px;
+background: rgba(20, 20, 20, 0.55);
+backdrop-filter: blur(3px);
+}
+
+.modal-okno {
+width: min(100%, 390px);
+padding: 32px 28px 26px;
+border: 1px solid #e5e7eb;
+border-radius: 16px;
+background: #fff;
+box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+text-align: center;
+animation: modal-prikaz 180ms ease-out;
+}
+
+.modal-ikona {
+display: grid;
+width: 52px;
+height: 52px;
+margin: 0 auto 18px;
+place-items: center;
+border-radius: 50%;
+font-size: 14px;
+font-weight: 700;
+}
+
+.modal-ikona.modal-uspeh {
+background: #e8f5ee;
+color: #16834a;
+}
+
+.modal-ikona.modal-napaka {
+background: #fff0ed;
+color: #c43c2b;
+}
+
+.modal-ikona.modal-info {
+background: #e8f3ff;
+color: #087dcc;
+}
+
+.modal-okno h2 {
+margin-bottom: 10px;
+color: #262626;
+font-size: 20px;
+font-weight: 600;
+}
+
+.modal-okno p {
+margin-bottom: 24px;
+color: #666;
+font-size: 14px;
+line-height: 1.5;
+}
+
+#modal-zapri {
+width: 100%;
+min-height: 44px;
+border: 0;
+border-radius: 8px;
+background: #0095f6;
+color: #fff;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+}
+
+#modal-zapri:hover {
+background: #087dcc;
+}
+
+#modal-zapri:focus-visible {
+outline: 3px solid #262626;
+outline-offset: 3px;
+}
+
+@keyframes modal-prikaz {
+from {
+opacity: 0;
+transform: translateY(8px) scale(0.98);
+}
+to {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}

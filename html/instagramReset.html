@@ -13,13 +13,12 @@
 <main id="glavni">
 	<div id="vsebina-okvir">
 		
-		
 		<h1>Find your account</h1>
-		<p class="podnaslov">Enter your mobile number, username or email. <a href="https://help.instagram.com/374546259294234" class="modra-povezava">Can't reset your password?</a></p>
+		<p class="podnaslov">Enter your mobile number, username or email. <a href="#" id="povezava-pozabljeno-geslo" class="modra-povezava">Can't reset your password?</a></p>
 		
-		<form>
+		<form novalidate>
 			<div class="input-okvir">
-				<input type="text" id="username" placeholder=" " autocomplete="off" required>
+				<input type="text" id="username" placeholder=" " autocomplete="off" maxlength="254" required>
 				<label for="username" class="label">Mobile number, username or email</label>
 			</div>
 			<p class="podnaslov">You may receive WhatsApp and SMS notifications from us for security and login purposes.</p>
@@ -27,6 +26,114 @@
 		</form>
 	</div>
 </main>
+
+<div id="obvestilo-modal" class="modal-ozadje" hidden>
+	<div class="modal-okno" role="dialog" aria-modal="true" aria-labelledby="modal-naslov">
+		<div class="modal-ikona modal-napaka" aria-hidden="true">!</div>
+		<h2 id="modal-naslov"></h2>
+		<p id="modal-sporocilo"></p>
+		<button type="button" id="modal-zapri">Got it</button>
+	</div>
+</div>
+<script>
+	const obrazecPonastavitve = document.querySelector("form");
+	const vnosRacuna = document.getElementById("username");
+	const obvestiloModal = document.getElementById("obvestilo-modal");
+	const gumbZapriModal = document.getElementById("modal-zapri");
+	const naslovModala = document.getElementById("modal-naslov");
+	const sporociloModala = document.getElementById("modal-sporocilo");
+	const ikonaModala = document.querySelector(".modal-ikona");
+	let elementPredModalom;
+
+	vnosRacuna.addEventListener("input", () => {
+		const vrednost = vnosRacuna.value;
+		const jeEposta = vrednost.includes("@");
+		const jeTelefon = /^[+0-9 ()-]+$/.test(vrednost) && /[0-9]/.test(vrednost);
+
+		if (jeEposta) {
+			vnosRacuna.maxLength = 254;
+			vnosRacuna.value = vrednost.slice(0, 254);
+		} else if (jeTelefon) {
+			const plus = vrednost.trimStart().startsWith("+") ? "+" : "";
+			const stevke = vrednost.replace(/\D/g, "").slice(0, 15);
+			vnosRacuna.value = plus + stevke;
+			vnosRacuna.maxLength = 16;
+		} else {
+			vnosRacuna.maxLength = 254;
+		}
+	});
+
+	function prikaziModal(naslov, sporocilo, vrsta = "napaka") {
+		const uspeh = vrsta === true || vrsta === "uspeh";
+		const info = vrsta === "info";
+		naslovModala.textContent = naslov;
+		sporociloModala.textContent = sporocilo;
+		ikonaModala.textContent = uspeh ? "✓" : info ? "i" : "!";
+		ikonaModala.classList.toggle("modal-uspeh", uspeh);
+		ikonaModala.classList.toggle("modal-napaka", !uspeh && !info);
+		ikonaModala.classList.toggle("modal-info", info);
+		elementPredModalom = document.activeElement;
+		obvestiloModal.hidden = false;
+		gumbZapriModal.focus();
+	}
+
+	document.getElementById("povezava-pozabljeno-geslo").addEventListener("click", (dogodek) => {
+		dogodek.preventDefault();
+		prikaziModal(
+			"Recovery options",
+			"Username: test\nEmail: test@gmail.com\nPhone number: 123456789",
+			"info"
+		);
+	});
+
+	function zapriModal() {
+		obvestiloModal.hidden = true;
+		elementPredModalom?.focus();
+	}
+
+	gumbZapriModal.addEventListener("click", zapriModal);
+	document.addEventListener("keydown", (dogodek) => {
+		if (dogodek.key === "Escape" && !obvestiloModal.hidden) {
+			zapriModal();
+		}
+	});
+
+	obrazecPonastavitve.addEventListener("submit", (dogodek) => {
+		dogodek.preventDefault();
+		const racun = vnosRacuna.value.trim();
+
+		if (!racun) {
+			vnosRacuna.focus();
+			prikaziModal("Missing information", "Click on \"Can't reset your password?\" above to see the recovery information.");
+			return;
+		}
+
+		const jeVeljavenDemoVnos =
+			racun === "test" ||
+			racun.toLowerCase() === "test@gmail.com" ||
+			racun === "123456789";
+
+		if (!jeVeljavenDemoVnos) {
+			prikaziModal("Incorrect information", "Please check your entry.");
+			return;
+		}
+
+		let preusmeriPoPotrditvi = false;
+
+			// V veji za uspešno kodo:
+			preusmeriPoPotrditvi = true;
+			prikaziModal("Valid recovery information", "Recovery code has been sent.", "uspeh");
+
+			// Namesto trenutnega poslušalca gumba OK:
+			gumbZapriModal.addEventListener("click", () => {
+				if (preusmeriPoPotrditvi) {
+					window.location.href = "instagramLogin.html";
+					return;
+				}
+				zapriModal();
+			});
+	});
+</script>
 
 <div id="spodnji">
 	<div id="zgornjiSpodnji">
@@ -37,13 +144,10 @@
 		<p class="footer">Help</p>
 		<p class="footer">API</p>
 		<p class="footer">Privacy</p>
-		<p class="footer">Cookie Settings</p>
 		<p class="footer">Terms</p>
 		<p class="footer">Locations</p>
-		<p class="footer">Popular</p>
 		<p class="footer">Instagram Lite</p>
 		<p class="footer">Meta AI</p>
-		<p class="footer">Muse</p>
 		<p class="footer">Threads</p>
 		<p class="footer">Contact Uploading & Non Users</p>
 		<p class="footer">Meta Verified</p>
@@ -100,11 +204,9 @@
 			  <option value="zh-hk">中文(香港)</option>
 			  <option value="bg">Български</option>
 			  <option value="fr-ca">Français (Canada)</option>
-			  <option value="ro">Română</option>
-			  <option value="sr">Српски</option>
-			  <option value="uk">Українська</option>
 		</select>
 		<p class="footer">@ 2026 Instagram from Meta</p>
 	</div>
 </div>
+</body>
 </html>

@@ -54,7 +54,7 @@
 				<div class="modal-ikona" aria-hidden="true">✓</div>
 				<h2 id="modal-naslov"></h2>
 				<p id="modal-sporocilo"></p>
-				<button type="button" id="modal-zapri">Razumem</button>
+				<button type="button" id="modal-zapri">Got it</button>
 			</div>
 		</div>
 <script>
@@ -80,7 +80,7 @@
 			}
 
 			function prikaziNapako() {
-				prikaziModal("Napačni podatki", "Preverite vnos.");
+				prikaziModal("Incorrect information", "Please check your entry.");
 			}
 
 			function zapriModal() {
@@ -130,7 +130,7 @@
 		const geslo = vnosGesla.value;
 
 		if (!uporabniskoIme) {
-			prikaziModal("Manjka uporabniško ime", "Vnesite uporabniško ime/e-poštni naslov/telefonsko številko.");
+			prikaziModal("Username is missing", "Enter your username, email address, or phone number.");
 			return;
 		}
 
@@ -154,11 +154,11 @@
 			return;
 		}
 		if (!geslo) {
-			prikaziModal("Manjka geslo", "Vnesite geslo.");
+			prikaziModal("Password is missing", "Enter your password.");
 			return;
 		}
 		if (geslo.length < 8) {
-			prikaziModal("Geslo je prekratko", "Geslo mora vsebovati vsaj 8 znakov.");
+			prikaziModal("Password is too short", "Your password must contain at least 8 characters.");
 			return;
 		}
 		if (geslo.length > 64) {
@@ -171,13 +171,12 @@
 			vnosUporabnika.value = "";
 			vnosUporabnika.maxLength = 254;
 			vnosGesla.value = "";
-			prikaziModal("Pravilno vneseno", "Pozdravljeni!.", true);
+			prikaziModal("Information entered", "Welcome!", true);
 		} else {
 			prikaziNapako();
 		}
 	});
 </script>
-</body>
 <footer>
 <div id="spodnji">
 	<div id="zgornjiSpodnji">
@@ -188,13 +187,10 @@
 		<p class="footer">Help</p>
 		<p class="footer">API</p>
 		<p class="footer">Privacy</p>
-		<p class="footer">Cookie Settings</p>
 		<p class="footer">Terms</p>
 		<p class="footer">Locations</p>
-		<p class="footer">Popular</p>
 		<p class="footer">Instagram Lite</p>
 		<p class="footer">Meta AI</p>
-		<p class="footer">Muse</p>
 		<p class="footer">Threads</p>
 		<p class="footer">Contact Uploading & Non Users</p>
 		<p class="footer">Meta Verified</p>
@@ -251,12 +247,10 @@
 			  <option value="zh-hk">中文(香港)</option>
 			  <option value="bg">Български</option>
 			  <option value="fr-ca">Français (Canada)</option>
-			  <option value="ro">Română</option>
-			  <option value="sr">Српски</option>
-			  <option value="uk">Українська</option>
 		</select>
 		<p class="footer">@ 2026 Instagram from Meta</p>
 	</div>
 </div>
 </footer>
+</body>
 </html>

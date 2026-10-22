@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Sign up • Instagram</title>
+	<title>Instagram</title>
 	<link rel="stylesheet" href="../css/styleRegister.css">
 	<link rel="icon" type="image/jpeg" href="../images/logo.png">
 	
@@ -13,11 +13,12 @@
 <div id="glavni-registracija">
 	<div id="desni"> <!-- Uporabljamo podoben osrednji blok kot pri prijavi, centriran -->
 		<div id="divDesni">
+			
 			<img src="https://static.cdninstagram.com/rsrc.php/v3/y2/r/y9XW3zF1X04.png" id="meta-logo-top" alt="Meta" onerror="this.src='https://placehold.co/100x40/ffffff/0095f6?text=Meta';">
 			<h1 id="naslov-registracija">Get started on Instagram</h1>
 			<p id="podnaslov-registracija">Sign up to see photos and videos from your friends.</p>
 			
-			<form>
+			<form novalidate>
 				<div class="input-okvir">
 					<input type="text" id="reg-email" placeholder=" " autocomplete="off" required>
 					<label for="reg-email" class="label">Mobile number or email</label>
@@ -32,7 +33,7 @@
 				<div class="birthday-section">
 					<div class="birthday-header">
 						<label class="section-label">Birthday</label>
-						<span class="info-ikonica" title="Why do I need to provide my birthday?">?</span>
+						<button type="button" class="info-ikonica" aria-label="Why do I need to enter my birthday?">?</button>
 					</div>
 					<div class="birthday-dropdowns">
 						<div class="select-wrapper">
@@ -88,33 +89,6 @@
 						</div>
 						<div class="select-wrapper">
 							<select name="year" aria-label="Year">
-								<option value="2026">2026</option>
-								<option value="2025">2025</option>
-								<option value="2024">2024</option>
-								<option value="2023">2023</option>
-								<option value="2022">2022</option>
-								<option value="2021">2021</option>
-								<option value="2020">2020</option>
-								<option value="2019">2019</option>
-								<option value="2018">2018</option>
-								<option value="2017">2017</option>
-								<option value="2016">2016</option>
-								<option value="2015">2015</option>
-								<option value="2014">2014</option>
-								<option value="2013">2013</option>
-								<option value="2012">2012</option>
-								<option value="2011">2011</option>
-								<option value="2010">2010</option>
-								<option value="2009">2009</option>
-								<option value="2008">2008</option>
-								<option value="2007">2007</option>
-								<option value="2006">2006</option>
-								<option value="2005" selected>2005</option>
-								<option value="2004">2004</option>
-								<option value="2003">2003</option>
-								<option value="2002">2002</option>
-								<option value="2001">2001</option>
-								<option value="2000">2000</option>
 							</select>
 						</div>
 					</div>
@@ -141,12 +115,160 @@
 				</p>
 
 				<button type="submit" id="gumb-prijava">Submit</button>
-				<a href="instagramReset.html" id="gumb-ustvari-racun">I already have an account</a>
+				<a href="instagramLogin.html" id="gumb-ustvari-racun">I already have an account</a>
 			</form>
 		</div>
 	</div>
 </div>
-</body>
+	<div id="obvestilo-modal" class="modal-ozadje" hidden>
+		<div class="modal-okno" role="dialog" aria-modal="true" aria-labelledby="modal-naslov">
+			<div class="modal-ikona modal-napaka" aria-hidden="true">!</div>
+			<h2 id="modal-naslov"></h2>
+			<p id="modal-sporocilo"></p>
+			<button type="button" id="modal-zapri">OK</button>
+		</div>
+	</div>
+	<script>
+		const registracijskiObrazec = document.querySelector("form");
+		const obvestiloModal = document.getElementById("obvestilo-modal");
+		const gumbZapriModal = document.getElementById("modal-zapri");
+		const naslovModala = document.getElementById("modal-naslov");
+		const sporociloModala = document.getElementById("modal-sporocilo");
+		const ikonaModala = document.querySelector(".modal-ikona");
+		const izbirnikLetnice = registracijskiObrazec.elements.year;
+		const izbirnikMeseca = registracijskiObrazec.elements.month;
+		const izbirnikDneva = registracijskiObrazec.elements.day;
+		const trenutnoLeto = new Date().getFullYear();
+		const najstarejseLeto = trenutnoLeto - 150;
+		const minimalnaStarost = 13;
+		let elementPredModalom;
+
+		for (let leto = trenutnoLeto; leto >= najstarejseLeto; leto--) {
+			const moznost = document.createElement("option");
+			moznost.value = leto;
+			moznost.textContent = leto;
+			izbirnikLetnice.append(moznost);
+		}
+		izbirnikLetnice.value = trenutnoLeto >= 2005 && 2005 >= najstarejseLeto ? "2005" : String(trenutnoLeto);
+
+		function posodobiDneve() {
+			const izbranDan = Number(izbirnikDneva.value) || 1;
+			const steviloDni = new Date(
+				Number(izbirnikLetnice.value),
+				Number(izbirnikMeseca.value),
+				0
+			).getDate();
+			const moznostiDni = document.createDocumentFragment();
+
+			for (let dan = 1; dan <= steviloDni; dan++) {
+				const moznost = document.createElement("option");
+				moznost.value = dan;
+				moznost.textContent = dan;
+				moznostiDni.append(moznost);
+			}
+
+			izbirnikDneva.replaceChildren(moznostiDni);
+			izbirnikDneva.value = String(Math.min(izbranDan, steviloDni));
+		}
+
+		izbirnikMeseca.addEventListener("change", posodobiDneve);
+		izbirnikLetnice.addEventListener("change", posodobiDneve);
+		posodobiDneve();
+
+		function prikaziModal(naslov, sporocilo, vrsta = "napaka") {
+			naslovModala.textContent = naslov;
+			sporociloModala.textContent = sporocilo;
+			ikonaModala.textContent = vrsta === "info" ? "i" : vrsta === "uspeh" ? "✓" : "!";
+			ikonaModala.classList.toggle("modal-uspeh", vrsta === "uspeh");
+			ikonaModala.classList.toggle("modal-napaka", vrsta === "napaka");
+			ikonaModala.classList.toggle("modal-info", vrsta === "info");
+			elementPredModalom = document.activeElement;
+			obvestiloModal.hidden = false;
+			gumbZapriModal.focus();
+		}
+
+		function zapriModal() {
+			obvestiloModal.hidden = true;
+			elementPredModalom?.focus();
+		}
+
+		gumbZapriModal.addEventListener("click", zapriModal);
+		document.addEventListener("keydown", (dogodek) => {
+			if (dogodek.key === "Escape" && !obvestiloModal.hidden) {
+				zapriModal();
+			}
+		});
+
+		document.querySelector(".info-ikonica").addEventListener("click", () => {
+			prikaziModal(
+				"Why do I need to enter my birthday?",
+				"This demo checks that the date is valid and meets the minimum age requirement. Your information is not sent or saved.",
+				"info"
+			);
+		});
+
+		registracijskiObrazec.addEventListener("submit", (dogodek) => {
+			dogodek.preventDefault();
+
+			const kontakt = document.getElementById("reg-email").value.trim();
+			const geslo = document.getElementById("reg-password").value;
+			const ime = document.getElementById("reg-name").value.trim();
+			const uporabniskoIme = document.getElementById("reg-username").value.trim();
+			const mesec = Number(registracijskiObrazec.elements.month.value);
+			const dan = Number(registracijskiObrazec.elements.day.value);
+			const leto = Number(registracijskiObrazec.elements.year.value);
+			const jeEposta = /^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9.-]{1,189}[.][A-Za-z]{2,63}$/.test(kontakt);
+			const jeTelefon = /^[+0-9 ()-]+$/.test(kontakt) && /[0-9]/.test(kontakt);
+			const steviloTelefonskihStevk = kontakt.replace(/[^0-9]/g, "").length;
+
+			if (!kontakt) {
+				document.getElementById("reg-email").focus();
+				prikaziModal("Contact information is missing", "Enter a phone number or email address.");
+				return;
+			}
+			if (!jeEposta && !(jeTelefon && steviloTelefonskihStevk >= 7 && steviloTelefonskihStevk <= 15)) {
+				prikaziModal("Invalid contact information", "Enter a valid email address or phone number.");
+				return;
+			}
+			if (!geslo) {
+				document.getElementById("reg-password").focus();
+				prikaziModal("Password is missing", "Enter a password.");
+				return;
+			}
+			if (geslo.length < 8 || geslo.length > 64) {
+				document.getElementById("reg-password").focus();
+				prikaziModal("Invalid password", "Your password must be between 8 and 64 characters long.");
+				return;
+			}
+
+			const datumRojstva = new Date(leto, mesec - 1, dan);
+			if (datumRojstva.getFullYear() !== leto || datumRojstva.getMonth() !== mesec - 1 || datumRojstva.getDate() !== dan) {
+				prikaziModal("Invalid birthday", "Select a valid date of birth.");
+				return;
+			}
+			const danes = new Date();
+			let starost = danes.getFullYear() - leto;
+			if (danes.getMonth() < mesec - 1 || (danes.getMonth() === mesec - 1 && danes.getDate() < dan)) {
+				starost--;
+			}
+			if (starost < minimalnaStarost) {
+				prikaziModal("Age requirement", `You must be at least ${minimalnaStarost} years old to continue with this demo.`);
+				return;
+			}
+			if (!ime) {
+				document.getElementById("reg-name").focus();
+				prikaziModal("Name is missing", "Enter your full name.");
+				return;
+			}
+			if (!/^[A-Za-z0-9._]{1,30}$/.test(uporabniskoIme)) {
+				document.getElementById("reg-username").focus();
+				prikaziModal("Invalid username", "Use 1-30 letters, numbers, periods, or underscores.");
+				return;
+			}
+
+			window.location.href = "instagramConfirm.html";
+		});
+	</script>
 <footer>
 <div id="spodnji">
 	<div id="zgornjiSpodnji">
@@ -217,3 +339,10 @@
 			  <option value="zh-hk">中文(香港)</option>
 			  <option value="bg">Български</option>
 			  <option value="fr-ca">Français (Canada)</option>
+</select>
+		<p class="footer">@ 2026 Instagram from Meta</p>
+	</div>
+</div>
+</footer>
+</body>
+</html>

@@ -28,6 +28,16 @@ body {
 	text-align: left;
 }
 
+#obvestilo-demonstracija {
+	margin-bottom: 20px;
+	padding: 10px 12px;
+	border: 1px solid #d6c57a;
+	border-radius: 8px;
+	background: #fff8db;
+	color: #5c4b13;
+	font-size: 12px;
+	line-height: 1.5;
+}
 
 #vsebina-okvir h1 {
 	font-size: 25px;
@@ -61,9 +71,9 @@ body {
 .input-okvir input {
 	width: 100%;
 	height: 55px;
-	background: #fafafa;
+	background: #fff;
 	border: 1px solid #dbdbdb;
-	border-radius: 6px;
+	border-radius: 17px;
 	padding: 16px 0 0 12px;
 	font-size: 14px;
 	color: #262626;
@@ -99,15 +109,17 @@ body {
 
 #gumb-nadaljuj {
 	width: 100%;
-	height: 44px;
+	height: 50px;
 	background-color: #0095f6;
 	border: none;
-	border-radius: 8px;
+	border-radius: 25px;
 	color: white;
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 15px;
 	cursor: pointer;
-	margin-top: 6px;
+	margin-top: 8px;
+	margin-bottom: 12px;
+	transition: background-color 0.2s ease;
 }
 
 #gumb-nadaljuj:hover {
@@ -117,13 +129,9 @@ body {
 #spodnji {
 	width: 100%;
 	height: auto;
-	border-top: 1px solid #DBDBDB;
-	padding: 0 16px;
-
-	background-color: #ffffff;
-
+	box-shadow: 0 0 0 0.5px #DBDBDB;
+	padding: 0 16px 0 16px;
 	background-color: #fafafa;
-
 }
 
 
@@ -137,9 +145,10 @@ body {
 }
 
 .footer {
-	margin: 0 8px;
+	margin: 0 8px 10px;
 	color: #737373;
 	font-size: 12px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .footer:hover {
@@ -151,8 +160,9 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding: 20px;
+	padding: 10px 20px 30px;
 	flex-wrap: wrap;
+	gap: 12px;
 	align-items: center;
 }
 
@@ -160,7 +170,113 @@ body {
 	margin: 0 8px;
 	color: #737373;
 	font-size: 12px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 	border: none;
 	background: transparent;
 	cursor: pointer;
+}
+
+.modal-ozadje[hidden] {
+	display: none;
+}
+
+.modal-ozadje {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+	background: rgba(20, 20, 20, 0.55);
+	backdrop-filter: blur(3px);
+}
+
+.modal-okno {
+	width: min(100%, 390px);
+	padding: 32px 28px 26px;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	background: #fff;
+	box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	animation: modal-prikaz 180ms ease-out;
+}
+
+.modal-ikona {
+	display: grid;
+	width: 52px;
+	height: 52px;
+	margin: 0 auto 18px;
+	place-items: center;
+	border-radius: 50%;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.modal-ikona.modal-uspeh {
+	background: #e8f5ee;
+	color: #16834a;
+}
+
+.modal-ikona.modal-napaka {
+	background: #fff0ed;
+	color: #c43c2b;
+}
+
+.modal-ikona.modal-info {
+	background: #e8f3ff;
+	color: #087dcc;
+}
+
+.modal-ikona.modal-info {
+	background: #e8f3ff;
+	color: #087dcc;
+}
+
+.modal-okno h2 {
+	margin-bottom: 10px;
+	color: #262626;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.modal-okno p {
+	margin-bottom: 24px;
+	color: #666;
+	font-size: 14px;
+	line-height: 1.5;
+	white-space: pre-line;
+	white-space: pre-line;
+}
+
+#modal-zapri {
+	width: 100%;
+	min-height: 44px;
+	border: 0;
+	border-radius: 8px;
+	background: #0095f6;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#modal-zapri:hover {
+	background: #087dcc;
+}
+
+#modal-zapri:focus-visible {
+	outline: 3px solid #262626;
+	outline-offset: 3px;
+}
+
+@keyframes modal-prikaz {
+	from {
+		opacity: 0;
+		transform: translateY(8px) scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
 }
