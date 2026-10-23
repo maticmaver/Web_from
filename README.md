@@ -37,6 +37,13 @@ Za testiranje prijave in obnovitve računa lahko uporabite naslednje prednastavl
 > 💡 **Opomba:** Pri registraciji in potrditvi se potrditvena koda izpiše v modalnem oknu ob kliku na povezavo *"your email address"*.
 
 ---
+<img width="562" height="493" alt="image" src="https://github.com/user-attachments/assets/24223095-efe0-42da-b50c-dbdb81a80e67" />
+<img width="539" height="773" alt="image" src="https://github.com/user-attachments/assets/b826c97a-d090-4d7f-91c0-e481956107b4" />
+<img width="504" height="393" alt="image" src="https://github.com/user-attachments/assets/e8550d0f-f0c1-4d03-80b9-cc783030e328" />
+<img width="656" height="248" alt="image" src="https://github.com/user-attachments/assets/a2522edb-5566-4530-80cb-687a1a07151f" />
+---
+
+
 
 
 ## 📝 Avtor
