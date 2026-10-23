@@ -34,7 +34,7 @@ Za testiranje prijave in obnovitve računa lahko uporabite naslednje prednastavl
 | **Uporabniško ime / E-pošta / Telefon** | `test` **ali** `test@gmail.com` **ali** `123456789` |
 | **Geslo** | `test123!` |
 
-> 💡 **Opomba:** Pri registraciji in potrditvi se potrditvena koda izpiše v demo modalnem oknu ob kliku na povezavo *"your email address"*.
+> 💡 **Opomba:** Pri registraciji in potrditvi se potrditvena koda izpiše v modalnem oknu ob kliku na povezavo *"your email address"*.
 
 ---
 
