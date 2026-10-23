@@ -38,7 +38,7 @@ Za testiranje prijave in obnovitve računa lahko uporabite naslednje prednastavl
 
 ---
 <img width="300" height="250" alt="image" src="https://github.com/user-attachments/assets/24223095-efe0-42da-b50c-dbdb81a80e67" />
-<img width="300" height="350" alt="image" src="https://github.com/user-attachments/assets/b826c97a-d090-4d7f-91c0-e481956107b4" />
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/b826c97a-d090-4d7f-91c0-e481956107b4" />
 <img width="300" height="250" alt="image" src="https://github.com/user-attachments/assets/e8550d0f-f0c1-4d03-80b9-cc783030e328" />
 <img width="400" height="250" alt="image" src="https://github.com/user-attachments/assets/a2522edb-5566-4530-80cb-687a1a07151f" />
 ---
